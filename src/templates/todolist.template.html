@@ -1,0 +1,14 @@
+<h3>Title: {{ $ctrl.myTitle }}</h3>
+<ol>
+  <li ng-repeat="todo in $ctrl.todos">
+    {{ todo.title }}
+    <br/>
+    Beschreibung: {{ todo.details }}
+    <br/>
+    Aufwand: {{todo.plannedEffort}}
+    <br/>
+    zu erledigen bis: {{todo.dueDate}}
+    <button ng-click="$ctrl.remove($index);">Entfernen</button>
+  </li>
+</ol>
+<div class="error">WARNING! WARNING! Do not take to much time!</div>

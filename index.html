@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app='TodoList'>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Todo List With Events</title>
+  </head>
+  <body>
+    <h1>Todo List With input for new one:</h1>
+    <div id="list" ng-controller='TodoListController as list'>
+
+      <todo-list
+        todos="list.items"
+        title="{{list.title}}"
+        on-remove="list.removeItem(index)"></todo-list>
+
+      <input type="text" ng-model="list.todoTitle" placeholder="Titel">
+      <input type="text" ng-model="list.todoDetail" placeholder=" Beschreibung">
+      <input type="text" ng-model="list.todoPlannedEffort" placeholder="Aufwand">
+      <input type="text" ng-model="list.todoDueDate" placeholder="bis zum">
+
+      <button ng-click="list.addItem();">neues Todo</button>
+      <span>{{ list.lastRemoved }}</span>
+
+    </div>
+
+    <loading-spinner></loading-spinner>
+
+    <!-- Libraries -->
+    <script src="../lib/jquery-3.2.1.min.js"></script>
+    <!-- v. 1.6.4 -->
+    <script src="../lib/angular.min.js"></script>
+
+    <!-- Modules -->
+
+    <script src="src/todolist/todolist.module.js"></script>
+    <script src="src/spinner/spinner.module.js"></script>
+
+    <!-- 'TodoList' module artifacts -->
+    <script src="src/todolist/todolist.component.js"></script>
+    <script src="src/todolist/todolist.controller.js"></script>
+    <script src="src/todolist/todolist.factory.js"></script>
+    <script src="src/todolist/weightlossfilter.service.js"></script>
+
+    <!-- 'Spinner' module artifacts -->
+    <script src="src/spinner/loadingspinner.component.js"></script>
+
+  </body>
+</html>
